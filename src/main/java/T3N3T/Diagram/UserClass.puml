@@ -9,9 +9,29 @@ class UserController
 class UserRoute
 
 class UserEntity{
+@Getter - password
+@Setter
 + String username
 + int userId
 + String password [hashed]
++ Set<BookEntity> books
++ int getUserId()
++ Set<BookEntity> getBooks()
++ BookEntity getBookByTitle(String title)
++ BookEntity getBookById(int bookId)
+}
+
+class UserDTO{
+@Getter
++ String username
++ int userId
++ Set<BookEntity> books
+}
+
+class UserDAO{
++ Set<UserEntity> getAll()
++ UserEntity getUserById(int id)
++ UserEntity getByUsername(String username)
 
 }
 
