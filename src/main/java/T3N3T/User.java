@@ -1,12 +1,15 @@
 package T3N3T;
 
 public class
-Role
+User
 {
+    @jakarta.persistence.Id
+    private java.lang.Long      id;
     private T3N3T.Enum.Role     role;
     private java.lang.String    username;
 
-    public Role(T3N3T.Enum.Role     role,
+
+    public User(T3N3T.Enum.Role     role,
                 java.lang.String    username)
     {
         this.role       = role;

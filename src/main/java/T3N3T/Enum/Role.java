@@ -7,23 +7,23 @@ public enum Role
     ADMIN(2),
     MODERATOR(3);
 
-    protected final int roleCode;
-    Role(int roleCode){
-        this.roleCode = roleCode;
+    protected final int id;
+    Role(int id){
+        this.id = id;
     }
 
 
     protected int
-    get()
+    getId()
     {
-        return this.roleCode;
+        return this.id;
     }
 
     // Method overload of [isAccessAllowed(int attemptedAccess, int requiredAccess)]
     protected static boolean
     isAccessAllowed(Role attemptedAccess, Role requiredAccess)
     {
-        return isAccessAllowed(attemptedAccess.get(), requiredAccess.get());
+        return isAccessAllowed(attemptedAccess.getId(), requiredAccess.getId());
     }
 
     protected static boolean
