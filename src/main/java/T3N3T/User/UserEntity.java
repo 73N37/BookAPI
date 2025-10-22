@@ -1,8 +1,8 @@
-package T3N3T;
+package T3N3T.User;
 
 @lombok.Getter
 public class
-User
+UserEntity
 {
     @jakarta.persistence.Id
     @jakarta.persistence.GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
@@ -11,8 +11,8 @@ User
     private java.lang.String    username;
 
 
-    public User(T3N3T.Enum.Role     role,
-                java.lang.String    username)
+    public UserEntity(T3N3T.Enum.Role     role,
+                      java.lang.String    username)
     {
         this.role       = role;
         this.username   = username;

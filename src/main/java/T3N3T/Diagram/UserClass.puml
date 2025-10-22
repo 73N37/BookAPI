@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class UserEntity
+class UserDTO
+class UserDAO
+class UserService
+class UserController
+class UserRoute
+
+class UserEntity{
++ String username
++ int userId
++ String password [hashed]
+
+}
+
+
+@enduml

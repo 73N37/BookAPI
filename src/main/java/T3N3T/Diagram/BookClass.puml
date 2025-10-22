@@ -8,19 +8,6 @@ class   BookService
 class   BookController
 class   BookRoute
 
-class BookDAO {
-+   Set<BookEntity>   getAll(Role.ANYONE role)
-+   BookEntity        getById(int id, Role.ANYONE role)
-+   Set<BookEntity>   getByName(String, Role.ANYONE role)
-+   Set<BookEntity>   getByMaxPrice(int maxPrice, Role.ANYONE role)
-+   Set<BookEntity>   getBtMinPrice(int minPrice, Role.ANYONE role)
-+   Set<BookEntity>   getByPriceRange(int minPrice, int maxPrice, Role.ANYONE role)
-+   putBook(BookEntity entity, Role.USER role)
-+   patchBookUser(int bookId, Role.USER role, UserEntity user)
-+   patchBookAdmin(int bookId, Role.ADMIN role, UserEntity admin)
-+   deleteById(int bookId, Role.MODERATOR role)
-}
-
 class BookEntity{
 @Getter
 @Setter
@@ -39,8 +26,43 @@ class BookDTO{
 + int bookId
 }
 
+class BookDAO {
++   Set<BookEntity>   getAll(Role.ANYONE role)
++   BookEntity        getById(int id, Role.ANYONE role)
++   Set<BookEntity>   getByName(String, Role.ANYONE role)
++   Set<BookEntity>   getByMaxPrice(int maxPrice, Role.ANYONE role)
++   Set<BookEntity>   getByMinPrice(int minPrice, Role.ANYONE role)
++   Set<BookEntity>   getByPriceRange(int minPrice, int maxPrice, Role.ANYONE role)
++   BookEntity putBook(BookEntity entity, User user)
++   BookEntity patchBookUser(int bookId, User user)
++   BookEntity patchBookAdmin(int bookId, User admin)
++   void deleteById(int bookId, Role.MODERATOR role)
+}
+
 class BookService{
-BookDTO put(BookEntity entity)
+BookEntity put(BookEntity entity)
+BookDTO dtoToEntity(BookEntity entity)
+Set<BookDTO> dtoToEntitySet(Set<BookEntity> books)
+BookDTO getById(int bookId, Role.ANYONE role)
+Set<BookDTO> getByName(String, Role.ANYONE role)
+Set<BookDTO> getByMaxPrice(int maxPrice, Role.ANYONE role)
+Set<BookDTO> getByMinPrice(int minPrice, Role.ANYONE role)
+Set<BookDTO> getByPriceRange(int minPrice, int maxPrice, Role.ANYONE role)
+BookDTO patchBook(int bookId, User user)
+}
+
+class BookController{
+boolean validatePrimaryKey(Integer id)
+BookEntity validateEntity(Context ctx)
+void get(Context ctx)
+void getAll(Context ctx)
+void put(Context ctx)
+void patch(Context ctx)
+void delete(Context ctx)
+}
+
+class BookRoute{
+EndpointGroup getRoutes()
 }
 
 @enduml
