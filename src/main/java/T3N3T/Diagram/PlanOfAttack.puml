@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+== Initialization ==
+
+User1 -> Website: Goes to log-in
+Website -> Server: Send user-data (username & password)
+Server -> Database: Send user-data (username & password)
+
+
+== Access granted ==
+
+'Alice -> Bob: Another authentication Request
+'Alice <-- Bob: another authentication Response
+@enduml

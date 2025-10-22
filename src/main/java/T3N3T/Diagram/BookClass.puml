@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class BookEntity
+class BookDAO
+
+class BookDAO {
++ List<BookEntity> getAll(Role.ANYONE)
+HOURS
+MINUTES
+}
+
+class BookEntity{
+}
+
+@enduml
