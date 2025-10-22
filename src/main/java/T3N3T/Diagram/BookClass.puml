@@ -6,8 +6,7 @@ class BookDAO
 
 class BookDAO {
 + List<BookEntity> getAll(Role.ANYONE)
-HOURS
-MINUTES
+
 }
 
 class BookEntity{
