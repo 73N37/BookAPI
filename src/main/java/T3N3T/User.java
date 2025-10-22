@@ -1,10 +1,12 @@
 package T3N3T;
 
+@lombok.Getter
 public class
 User
 {
     @jakarta.persistence.Id
-    private java.lang.Long      id;
+    @jakarta.persistence.GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    private java.lang.Long      userId;
     private T3N3T.Enum.Role     role;
     private java.lang.String    username;
 
@@ -14,9 +16,5 @@ User
     {
         this.role       = role;
         this.username   = username;
-    }
-
-    public T3N3T.Enum.Role getRole(){
-        return this.role;
     }
 }

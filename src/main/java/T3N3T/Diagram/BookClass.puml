@@ -28,8 +28,8 @@ class BookEntity{
 + String title
 + String author
 + int bookId
-+ int userId
-+ BookEntity(int price, String title, String author, Role.USER role)
++ User user
++ BookEntity(int price, String title, String author, User user)
 }
 
 class BookDTO{
