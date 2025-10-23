@@ -6,13 +6,6 @@
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 config.properties
-/src/main/resources/**
-http-client.env.json
-/src/main/resources/http/http-client.env.json
-**/http-client.env.json
-dev.http
-**/dev.http
-.src/**/main/resources/http-client.env.json
 
 # User-specific stuff
 .idea/**/workspace.xml
