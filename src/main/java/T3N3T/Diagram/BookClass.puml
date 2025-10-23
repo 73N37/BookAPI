@@ -27,6 +27,7 @@ class BookDTO{
 }
 
 class BookDAO {
++   BookDAO(EntityManagerFactory emf)
 +   Set<BookEntity>   getAll(Role.ANYONE role)
 +   BookEntity        getById(int id, Role.ANYONE role)
 +   Set<BookEntity>   getByName(String, Role.ANYONE role)
@@ -40,28 +41,32 @@ class BookDAO {
 }
 
 class BookService{
-BookEntity put(BookEntity entity)
-BookDTO dtoToEntity(BookEntity entity)
-Set<BookDTO> dtoToEntitySet(Set<BookEntity> books)
-BookDTO getById(int bookId, Role.ANYONE role)
-Set<BookDTO> getByName(String, Role.ANYONE role)
-Set<BookDTO> getByMaxPrice(int maxPrice, Role.ANYONE role)
-Set<BookDTO> getByMinPrice(int minPrice, Role.ANYONE role)
-Set<BookDTO> getByPriceRange(int minPrice, int maxPrice, Role.ANYONE role)
-BookDTO patchBook(int bookId, User user)
++ BookService(BookDAO)
++ BookEntity put(BookEntity entity)
++ BookDTO dtoToEntity(BookEntity entity)
++ Set<BookDTO> dtoToEntitySet(Set<BookEntity> books)
++ BookDTO getById(int bookId, Role.ANYONE role)
++ Set<BookDTO> getByName(String, Role.ANYONE role)
++ Set<BookDTO> getByMaxPrice(int maxPrice, Role.ANYONE role)
++ Set<BookDTO> getByMinPrice(int minPrice, Role.ANYONE role)
++ Set<BookDTO> getByPriceRange(int minPrice, int maxPrice, Role.ANYONE role)
++ BookDTO patchBook(int bookId, User user)
++ BookDTO entityToDTO(BookEntity entity)
 }
 
 class BookController{
++ BookController(BookService service)
 boolean validatePrimaryKey(Integer id)
 BookEntity validateEntity(Context ctx)
-void get(Context ctx)
-void getAll(Context ctx)
-void put(Context ctx)
-void patch(Context ctx)
-void delete(Context ctx)
+Handler get(Context ctx)
+Handler getAll(Context ctx)
+Handler put(Context ctx)
+Handler patch(Context ctx)
+Handler delete(Context ctx)
 }
 
 class BookRoute{
++ BookRoute(BookController controller)
 EndpointGroup getRoutes()
 }
 

@@ -25,15 +25,48 @@ class UserDTO{
 @Getter
 + String username
 + int userId
-+ Set<BookEntity> books
++ Set<BookDTO> books
++ Set<BookDTO> getBooks()
++ String getUsername()
++ int getUserId()
 }
 
 class UserDAO{
-+ Set<UserEntity> getAll()
-+ UserEntity getUserById(int id)
-+ UserEntity getByUsername(String username)
-
++ UserDAO(EntityManager emf)
++ Set<UserEntity> getAll(Role.ADMIN role)
++ UserEntity getUserById(ROle.ADMIN role, int id)
++ UserEntity getByUsername(Role.ADMIN role, String username)
++ UserEntity getUserByBook(Role.ADMIN role, BookEntity entity)
++ UserEntity putUser(Role.ADMIN role, UserEntity entity)
++ UserEntity patchUser(Role.ADMIN role,UserEntity entity)
++ void deleteUser(Role.SUPER role, UserEntity entity)
 }
 
+class UserService{
++ UserService(UserDAO dao)
++ Set<UserDTO> getAll(Role.ADMIN role)
++ UserDTO getUserById(Role.ADMIN role, int id)
++ UserDTO getByUsername(Role.ADMIN role, String username)
++ UserDTO getUserByBook(Role.ANYONE role, BookDTO dto)
++ UserDTO putUser(Role.ADMIN role, UserDTO dto)
++ UserDTO patchUser(Role.ADMIN role, UserDTO dto)
++ void deleteUser(Role.SUPER role, UserDTO dto)
+}
+
+class UserController{
++ UserController(UserService service)
++ Handler getAll(Context ctx)
++ Handler getByUserId(Context ctx)
++ Handler getByBookId(Context ctx)
++ Handler getUserByBook(Context ctx)
++ Handler putUser(Context ctx)
++ Handler patchUser(Context ctx)
++ Handler deleteUser(Context ctx)
+}
+
+class UserRoute{
++ UserRoutes(UserController)
++ EndpointGroup getRoutes()
+}
 
 @enduml
