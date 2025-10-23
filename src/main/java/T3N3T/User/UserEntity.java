@@ -10,21 +10,23 @@ UserEntity
 {
     @jakarta.persistence.Id
     @jakarta.persistence.GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
-    private         java.lang.Long                          userId;
+                    java.lang.Long                          userId;
     private static  Class<UserEntity>                       myClass;
-    private         T3N3T.Enum.Role                         role;
-    private         java.lang.String                        username;
-    private         java.lang.String                        hashedPassword;
-    private         java.lang.Set<T3N3T.Book.BookEntity>    books;
+                    T3N3T.Enum.Role                         role;
+                    java.lang.String                        username;
+                    java.lang.String                        hashedPassword;
+                    java.util.Set<T3N3T.Book.BookEntity>    books;
 
-    public UserEntity(T3N3T.Enum.Role     role,
+    public
+    UserEntity(T3N3T.Enum.Role     role,
                       java.lang.String    username)
     {
         this.role       = role;
         this.username   = username;
     }
 
-    BookEntity getBookByTitle(java.lang.String title)
+    T3N3T.Book.BookEntity
+    getBookByTitle(java.lang.String title)
     {
         java.lang.String methodLocation = myClass.getName()+".getBookByTitle(String)";
         return ( () -> {books.stream()
@@ -33,7 +35,8 @@ UserEntity
                                 .elseThrow(new Exception("An error happen in" + methodLocation)))});
     }
 
-    BookEntity getBookById(java.lang.Integer id)
+    T3N3T.Book.BookEntity
+    getBookById(java.lang.Integer id)
     {
         java.lang.String methodLocation = myClass.getName()+"getBookById(int)";
         return ( () -> {books.stream()
