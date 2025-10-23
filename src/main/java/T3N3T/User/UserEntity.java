@@ -4,6 +4,7 @@ package T3N3T.User;
 @lombok.RequiredArgsConstructor
 @lombok.Setter
 @lombok.Getter
+@jakarta.persistence.Entity
 public class
 UserEntity
 {
@@ -32,7 +33,7 @@ UserEntity
                                 .elseThrow(new Exception("An error happen in" + methodLocation)))});
     }
 
-    BookEntity getBookById(int id)
+    BookEntity getBookById(java.lang.Integer id)
     {
         java.lang.String methodLocation = myClass.getName()+"getBookById(int)";
         return ( () -> {books.stream()
