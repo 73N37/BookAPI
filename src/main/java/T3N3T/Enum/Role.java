@@ -5,7 +5,7 @@ public enum Role
     ANYONE(0),
     USER(1),
     ADMIN(2),
-    MODERATOR(3);
+    SUPER(3);
 
     protected final int roleId;
     Role(int roleId){
