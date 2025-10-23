@@ -38,9 +38,9 @@ UserEntity
     T3N3T.Book.BookEntity
     getBookById(java.lang.Integer id)
     {
-        java.lang.String methodLocation = myClass.getName()+"getBookById(int)";
+        java.lang.String methodLocation = myClass.getName()+".getBookById(int)";
         return ( () -> {books.stream()
-                .filer(book -> book.getBookId().equals(id)
+                .filter(book -> book.getBookId().equals(id)
                         .findFirst()
                                 .elseThrow(new Exception("An error happen in" + methodLocation)))});
     }
